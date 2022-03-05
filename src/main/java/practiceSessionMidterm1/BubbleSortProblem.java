@@ -12,12 +12,24 @@ public class BubbleSortProblem {
        * @param low
        */
         public static void bubbleSortSubarrayDescending(int[] arr, int low) {
-            // FILL IN CODE:
+            for (int pos = low; pos < arr.length - 1; pos++) {
+                for (int  j = arr.length - 1; j > pos; j--) {
+                    if (arr[j]  > arr[j-1]) {
+                        int tmp = arr[j];
+                        arr[j] = arr[j-1];
+                        arr[j-1] = tmp;
+                    }
+                }
+            }
         }
 
     public static void main(String[] args) {
         int[] arr = {9, 5, 8, 1, 2, 15, 7, 13};
         bubbleSortSubarrayDescending(arr, 2);
         System.out.println(Arrays.toString(arr));
+
+        int[] arr2 = {9, 5, 8, 1, 2, 15, 7, 13};
+        bubbleSortSubarrayDescending(arr2, 0);
+        System.out.println(Arrays.toString(arr2));
     }
 }

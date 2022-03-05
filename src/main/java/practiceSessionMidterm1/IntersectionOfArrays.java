@@ -16,7 +16,20 @@ public class IntersectionOfArrays {
      * @param sortedArr2
      */
     public static void printCommonElements(int[] sortedArr1, int[] sortedArr2) {
-        // FILL IN CODE
+        int i = 0, j = 0;
+
+        while (i < sortedArr1.length && j < sortedArr2.length) {
+            if (sortedArr1[i] == sortedArr2[j]) {
+                System.out.println(sortedArr1[i]);
+                i++;
+                j++;
+            }
+            else
+                if (sortedArr1[i] < sortedArr2[j])
+                    i++;
+                else
+                    j++;
+        }
     }
 
     public static void main(String[] args) {

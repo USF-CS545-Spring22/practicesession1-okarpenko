@@ -1,0 +1,24 @@
+Give Theta of the running time (as a function of n) of the following
+ code snippet and explain your answer.
+
+public static void func2(int n) {
+   int sum = 0;
+   for (int i = 1; i <= n; i++) {
+       for (int j = 1; j <= i; j = j * 2)
+           sum = sum + func1(n*n); // here we call func1 from the previous question
+
+   }
+   System.out.println(sum);
+}
+
+Solution:
+First, note that the statement sum = sum + func1(n*n) has Theta(n^4) running time:
+ (since func1(x) has a running time of Theta(x^2), and here we are calling
+ it on  x = n^2).
+ The number of iterations of the j loop depends on i. To find out the total number of times the statement inside the loops
+  will be executed, we need to do a summation (for each i, we need to compute the number of iterations of the j loop, and sum everything up):
+
+  log 1 + log 2  + ... + log n  + C = Theta(n*log n) -
+  see the proof in one of algorithm analysis lectures & book early in the semester.
+
+  So the total running time of func2 is Theta(n^5 * log n).
